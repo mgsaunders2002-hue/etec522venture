@@ -67,12 +67,17 @@
         <div class="pitch-card" id="pitch">
           <div class="pitch-label">Elevator Pitch</div>
 
-          <div class="video-placeholder">
-            <button class="play-button" type="button" aria-label="Play pitch video">▶</button>
-            <div class="video-text">
-              <strong>1-minute investor pitch</strong>
-              <span>Your final video will be embedded here.</span>
-            </div>
+          <div class="pitch-video-wrap">
+            <video
+              class="pitch-video"
+              controls
+              preload="metadata"
+              playsinline
+              aria-label="RoboShift one-minute investor pitch"
+            >
+              <source src="RoboShift_Robotics.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
           </div>
 
           <div class="pitch-caption">
