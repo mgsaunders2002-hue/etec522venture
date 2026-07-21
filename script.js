@@ -18,9 +18,6 @@ menuToggle?.addEventListener("click", () => {
 });
 
 navLinks.forEach(link => link.addEventListener("click", closeMenu));
-playButton?.addEventListener("click", () => {
-  alert("Your final one-minute elevator pitch video will be embedded here.");
-});
 currentYear.textContent = new Date().getFullYear();
 
 const categories = [
