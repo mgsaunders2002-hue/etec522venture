@@ -1,3 +1,4 @@
+const playButton = document.querySelector("#playButton");
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 const navLinks = document.querySelectorAll(".main-nav a");
