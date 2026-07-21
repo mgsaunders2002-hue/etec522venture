@@ -137,7 +137,8 @@ function showScreen(screenName) {
   screens[screenName].classList.add("active");
   document.querySelector("#audit-tool").scrollIntoView({ behavior: "smooth", block: "start" });
 }
-
+document.querySelector("#startProfileButton")
+  .addEventListener("click", () => showScreen("profile"));
 document.querySelector("#startProfileButton").addEventListener("click", () => showScreen("profile"));
 document.querySelector("#backToWelcomeButton").addEventListener("click", () => showScreen("welcome"));
 
