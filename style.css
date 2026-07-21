@@ -580,3 +580,17 @@ blockquote { margin: 35px 0 0; padding: 27px 30px; border-left: 5px solid var(--
   .audit-shell { border: 0; box-shadow: none; }
   #resultsScreen { display: block !important; padding: 0; }
   .roadmap-column, .result-panel, .category-result-card, .finding-card { break-inside: avoid; box-shadow: none; }
+  #audit-tool {
+  display: block;
+  visibility: visible;
+  min-height: 600px;
+}
+
+#audit-tool .audit-shell {
+  display: block;
+  visibility: visible;
+}
+
+#auditWelcome.audit-screen.active {
+  display: block;
+}
