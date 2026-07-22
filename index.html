@@ -10,7 +10,7 @@
 
   <meta
     name="description"
-    content="RoboShift robotics and AI readiness assessment prototype."
+    content="RoboShift helps schools assess, strengthen, and plan sustainable robotics and AI programs."
   >
 
   <title>RoboShift Readiness Platform</title>
@@ -23,7 +23,7 @@
   <div class="app-shell">
 
     <!-- ======================================================
-         APP HEADER
+         HEADER
     ======================================================= -->
 
     <header class="app-header">
@@ -37,12 +37,11 @@
           aria-label="Return to RoboShift home"
           data-page="homePage"
         >
-          <span class="brand-mark" aria-hidden="true">R</span>
-
-          <span class="brand-copy">
-            <strong>RoboShift</strong>
-            <small>Robotics Readiness Platform</small>
-          </span>
+          <img
+            class="header-logo"
+            src="roboshift-logo.png"
+            alt="RoboShift"
+          >
         </button>
 
         <button
@@ -111,14 +110,14 @@
 
 
     <!-- ======================================================
-         MAIN APP
+         MAIN APPLICATION
     ======================================================= -->
 
     <main class="app-main">
 
 
       <!-- ====================================================
-           PAGE 1: HOME DASHBOARD
+           HOME PAGE
       ===================================================== -->
 
       <section
@@ -127,24 +126,36 @@
         aria-labelledby="homeTitle"
       >
 
-        <div class="dashboard-hero">
+        <!-- HOME HERO -->
 
-          <div class="dashboard-hero-inner">
+        <section class="home-intro-hero">
 
-            <div class="dashboard-hero-copy">
+          <div class="home-intro-inner">
+
+            <div class="home-logo-panel">
+
+              <img
+                class="home-main-logo"
+                src="roboshift-logo.png"
+                alt="RoboShift. Helping schools make better decisions about robotics, AI, and what comes next."
+              >
+
+            </div>
+
+            <div class="home-intro-copy">
 
               <p class="eyebrow">
-                RoboShift Readiness Platform
+                Robotics readiness and planning
               </p>
 
               <h1 id="homeTitle">
-                See the whole robotics program, not just the robots.
+                Strong robotics programs require more than strong robots.
               </h1>
 
-              <p class="hero-description">
-                Assess where your program stands, identify the gaps most
-                likely to limit growth, and turn your results into a practical
-                plan for stronger and more sustainable implementation.
+              <p class="home-intro-lead">
+                RoboShift helps schools understand whether their robotics
+                programs are ready to grow, where hidden weaknesses may be
+                limiting success, and what practical steps should come next.
               </p>
 
               <div class="hero-actions">
@@ -155,7 +166,7 @@
                   type="button"
                   data-page="auditPage"
                 >
-                  Start a New Audit
+                  Start the Readiness Audit
                 </button>
 
                 <button
@@ -171,52 +182,278 @@
 
             </div>
 
-            <aside
-              class="dashboard-status-card"
-              aria-label="Current audit status"
-            >
+          </div>
 
-              <p class="status-label">
-                Current audit
-              </p>
+        </section>
 
-              <h2 id="dashboardAuditStatus">
-                No audit started
-              </h2>
 
-              <p id="dashboardAuditMessage">
-                Begin a new assessment to create your school readiness
-                profile and personalized roadmap.
-              </p>
+        <!-- WHAT ROBOSHIFT IS -->
 
-              <div class="status-progress">
-                <div class="status-progress-heading">
-                  <span>Progress</span>
-                  <strong id="dashboardProgressText">0%</strong>
-                </div>
+        <section class="home-introduction-section">
 
-                <div class="status-progress-track">
-                  <span id="dashboardProgressBar"></span>
-                </div>
+          <div class="section-inner">
+
+            <div class="home-introduction-heading">
+
+              <div>
+
+                <p class="eyebrow dark-eyebrow">
+                  What is RoboShift?
+                </p>
+
+                <h2>
+                  A decision-support platform for school robotics and AI
+                  programs.
+                </h2>
+
               </div>
 
-              <button
-                class="text-button"
-                id="dashboardOpenAuditButton"
-                type="button"
-                data-page="auditPage"
-              >
-                Open the audit
-                <span aria-hidden="true">→</span>
-              </button>
+              <p>
+                RoboShift looks beyond equipment purchases and competition
+                results to assess the conditions that determine whether a
+                robotics program can reach students, support teachers, and
+                remain effective over time.
+              </p>
+
+            </div>
+
+
+            <div class="introduction-card-grid">
+
+              <article class="introduction-card">
+
+                <span class="introduction-card-number">
+                  01
+                </span>
+
+                <h3>
+                  Assess the whole program
+                </h3>
+
+                <p>
+                  RoboShift examines leadership, teacher capacity, curriculum,
+                  equipment, student access, sustainability, and readiness for
+                  robotics connected to AI.
+                </p>
+
+              </article>
+
+
+              <article class="introduction-card">
+
+                <span class="introduction-card-number">
+                  02
+                </span>
+
+                <h3>
+                  Identify what is holding it back
+                </h3>
+
+                <p>
+                  The platform highlights strengths, priority gaps, evidence
+                  gaps, and patterns that may not be visible when each part of
+                  the program is considered separately.
+                </p>
+
+              </article>
+
+
+              <article class="introduction-card">
+
+                <span class="introduction-card-number">
+                  03
+                </span>
+
+                <h3>
+                  Turn results into action
+                </h3>
+
+                <p>
+                  Schools receive tailored recommendations and a phased
+                  roadmap that can be developed into a practical 30, 60, and
+                  90-day action plan.
+                </p>
+
+              </article>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- WHY ROBOSHIFT WAS CREATED -->
+
+        <section class="why-roboshift-section">
+
+          <div class="section-inner why-roboshift-grid">
+
+            <div class="why-roboshift-copy">
+
+              <p class="eyebrow">
+                Why RoboShift was created
+              </p>
+
+              <h2>
+                A program can look successful and still be vulnerable.
+              </h2>
+
+              <p>
+                Schools often invest in robotics because they want students
+                to build, code, collaborate, compete, and prepare for emerging
+                technologies. Yet buying equipment does not guarantee that a
+                program is educationally meaningful, widely accessible, or
+                sustainable.
+              </p>
+
+              <p>
+                A program may depend on one teacher, reach only a small group
+                of students, operate separately from classroom learning, or
+                continue purchasing technology without a clear plan for
+                maintenance, progression, and long-term use.
+              </p>
+
+              <p>
+                RoboShift was created to make those implementation conditions
+                visible before schools invest more time, funding, and
+                equipment. It helps decision-makers determine what is already
+                working, what needs attention, and which investments are most
+                likely to strengthen the program.
+              </p>
+
+            </div>
+
+
+            <aside class="why-roboshift-callout">
+
+              <span class="callout-label">
+                The central question
+              </span>
+
+              <blockquote>
+                Is this robotics program ready to make its next investment
+                count?
+              </blockquote>
+
+              <p>
+                RoboShift shifts the conversation from simply asking what
+                schools should buy to examining what they are ready to
+                implement, sustain, and expand.
+              </p>
 
             </aside>
 
           </div>
-        </div>
+
+        </section>
 
 
-        <!-- DASHBOARD OPTIONS -->
+        <!-- HOW IT WORKS -->
+
+        <section class="platform-overview-section">
+
+          <div class="section-inner">
+
+            <div class="overview-copy">
+
+              <p class="eyebrow dark-eyebrow">
+                From uncertainty to action
+              </p>
+
+              <h2>
+                One connected process for assessing and strengthening the
+                full robotics program.
+              </h2>
+
+            </div>
+
+
+            <div class="process-strip">
+
+              <article class="process-step">
+
+                <span>1</span>
+
+                <h3>
+                  Profile
+                </h3>
+
+                <p>
+                  Describe the school, current program model, staffing,
+                  budget, and priorities.
+                </p>
+
+              </article>
+
+              <div class="process-arrow" aria-hidden="true">
+                →
+              </div>
+
+
+              <article class="process-step">
+
+                <span>2</span>
+
+                <h3>
+                  Assess
+                </h3>
+
+                <p>
+                  Complete 28 questions across seven areas of robotics and AI
+                  readiness.
+                </p>
+
+              </article>
+
+              <div class="process-arrow" aria-hidden="true">
+                →
+              </div>
+
+
+              <article class="process-step">
+
+                <span>3</span>
+
+                <h3>
+                  Understand
+                </h3>
+
+                <p>
+                  Review category scores, strengths, priority gaps, and
+                  connected program risks.
+                </p>
+
+              </article>
+
+              <div class="process-arrow" aria-hidden="true">
+                →
+              </div>
+
+
+              <article class="process-step">
+
+                <span>4</span>
+
+                <h3>
+                  Plan
+                </h3>
+
+                <p>
+                  Turn recommendations into a focused, phased implementation
+                  plan.
+                </p>
+
+              </article>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- HOME WORKSPACE -->
 
         <section class="dashboard-section">
 
@@ -225,21 +462,77 @@
             <div class="section-heading left-heading">
 
               <div>
+
                 <p class="eyebrow dark-eyebrow">
-                  Choose your next step
+                  RoboShift workspace
                 </p>
 
                 <h2>
-                  What would you like to do?
+                  Continue through the readiness process.
                 </h2>
+
               </div>
 
               <p>
-                RoboShift guides you from initial assessment through results,
-                planning, and implementation support.
+                Start an assessment, return to saved progress, review your
+                results, or begin building an action plan.
               </p>
 
             </div>
+
+
+            <div class="dashboard-status-banner">
+
+              <div>
+
+                <p class="status-label">
+                  Current audit
+                </p>
+
+                <h3 id="dashboardAuditStatus">
+                  No audit started
+                </h3>
+
+                <p id="dashboardAuditMessage">
+                  Begin a new assessment to create your school readiness
+                  profile and personalized roadmap.
+                </p>
+
+              </div>
+
+
+              <div class="dashboard-status-progress">
+
+                <div class="status-progress-heading">
+
+                  <span>
+                    Progress
+                  </span>
+
+                  <strong id="dashboardProgressText">
+                    0%
+                  </strong>
+
+                </div>
+
+                <div class="status-progress-track">
+                  <span id="dashboardProgressBar"></span>
+                </div>
+
+                <button
+                  class="text-button"
+                  id="dashboardOpenAuditButton"
+                  type="button"
+                  data-page="auditPage"
+                >
+                  Open the audit
+                  <span aria-hidden="true">→</span>
+                </button>
+
+              </div>
+
+            </div>
+
 
             <div class="dashboard-option-grid">
 
@@ -250,13 +543,20 @@
                 </div>
 
                 <div>
-                  <p class="option-label">Assess</p>
-                  <h3>Start a readiness audit</h3>
+
+                  <p class="option-label">
+                    Assess
+                  </p>
+
+                  <h3>
+                    Start a readiness audit
+                  </h3>
 
                   <p>
                     Complete the school profile and 28 questions across seven
                     areas of robotics and AI readiness.
                   </p>
+
                 </div>
 
                 <button
@@ -270,6 +570,7 @@
 
               </article>
 
+
               <article class="dashboard-option-card">
 
                 <div class="option-icon" aria-hidden="true">
@@ -277,13 +578,21 @@
                 </div>
 
                 <div>
-                  <p class="option-label">Understand</p>
-                  <h3>Review your results</h3>
+
+                  <p class="option-label">
+                    Understand
+                  </p>
+
+                  <h3>
+                    Review your results
+                  </h3>
 
                   <p>
                     See the overall readiness level, category scores,
-                    established strengths, priority gaps, and patterns.
+                    established strengths, priority gaps, and identified
+                    patterns.
                   </p>
+
                 </div>
 
                 <button
@@ -298,6 +607,7 @@
 
               </article>
 
+
               <article class="dashboard-option-card">
 
                 <div class="option-icon" aria-hidden="true">
@@ -305,13 +615,20 @@
                 </div>
 
                 <div>
-                  <p class="option-label">Plan</p>
-                  <h3>Build an action plan</h3>
+
+                  <p class="option-label">
+                    Plan
+                  </p>
+
+                  <h3>
+                    Build an action plan
+                  </h3>
 
                   <p>
                     Turn the highest-priority recommendations into 30-day,
                     60-day, and 90-day actions.
                   </p>
+
                 </div>
 
                 <button
@@ -325,6 +642,7 @@
 
               </article>
 
+
               <article class="dashboard-option-card">
 
                 <div class="option-icon" aria-hidden="true">
@@ -332,13 +650,20 @@
                 </div>
 
                 <div>
-                  <p class="option-label">Strengthen</p>
-                  <h3>Explore recommended resources</h3>
+
+                  <p class="option-label">
+                    Strengthen
+                  </p>
+
+                  <h3>
+                    Explore recommended resources
+                  </h3>
 
                   <p>
                     Access sample planning tools and implementation supports
                     organized around the seven readiness categories.
                   </p>
+
                 </div>
 
                 <button
@@ -353,71 +678,16 @@
               </article>
 
             </div>
-          </div>
-        </section>
-
-
-        <!-- PLATFORM OVERVIEW -->
-
-        <section class="platform-overview-section">
-
-          <div class="section-inner">
-
-            <div class="overview-copy">
-
-              <p class="eyebrow dark-eyebrow">
-                From uncertainty to action
-              </p>
-
-              <h2>
-                One connected process for assessing and strengthening the
-                full program.
-              </h2>
-
-            </div>
-
-            <div class="process-strip">
-
-              <article class="process-step">
-                <span>1</span>
-                <h3>Profile</h3>
-                <p>Describe the school and current program context.</p>
-              </article>
-
-              <div class="process-arrow" aria-hidden="true">→</div>
-
-              <article class="process-step">
-                <span>2</span>
-                <h3>Assess</h3>
-                <p>Complete seven categories of readiness questions.</p>
-              </article>
-
-              <div class="process-arrow" aria-hidden="true">→</div>
-
-              <article class="process-step">
-                <span>3</span>
-                <h3>Understand</h3>
-                <p>Review scores, strengths, gaps, and cross-category patterns.</p>
-              </article>
-
-              <div class="process-arrow" aria-hidden="true">→</div>
-
-              <article class="process-step">
-                <span>4</span>
-                <h3>Plan</h3>
-                <p>Turn recommendations into a focused implementation plan.</p>
-              </article>
-
-            </div>
 
           </div>
+
         </section>
 
       </section>
 
 
       <!-- ====================================================
-           PAGE 2: AUDIT
+           AUDIT PAGE
       ===================================================== -->
 
       <section
@@ -474,6 +744,7 @@
             </div>
 
           </div>
+
         </header>
 
 
@@ -501,13 +772,18 @@
 
             </div>
 
+
             <div class="deliverables-grid">
 
               <article class="deliverable">
 
-                <div class="deliverable-number">1</div>
+                <div class="deliverable-number">
+                  1
+                </div>
 
-                <h3>Overall readiness profile</h3>
+                <h3>
+                  Overall readiness profile
+                </h3>
 
                 <p>
                   A clear summary of the program’s current stage of
@@ -516,11 +792,16 @@
 
               </article>
 
+
               <article class="deliverable">
 
-                <div class="deliverable-number">2</div>
+                <div class="deliverable-number">
+                  2
+                </div>
 
-                <h3>Seven-area results</h3>
+                <h3>
+                  Seven-area results
+                </h3>
 
                 <p>
                   Scores across leadership, teachers, curriculum, equipment,
@@ -529,11 +810,16 @@
 
               </article>
 
+
               <article class="deliverable">
 
-                <div class="deliverable-number">3</div>
+                <div class="deliverable-number">
+                  3
+                </div>
 
-                <h3>Strengths and risks</h3>
+                <h3>
+                  Strengths and risks
+                </h3>
 
                 <p>
                   Existing capacity alongside the gaps most likely to limit
@@ -542,11 +828,16 @@
 
               </article>
 
+
               <article class="deliverable">
 
-                <div class="deliverable-number">4</div>
+                <div class="deliverable-number">
+                  4
+                </div>
 
-                <h3>Tailored findings</h3>
+                <h3>
+                  Tailored findings
+                </h3>
 
                 <p>
                   Patterns that may not be visible when each part of the
@@ -555,11 +846,16 @@
 
               </article>
 
+
               <article class="deliverable">
 
-                <div class="deliverable-number">5</div>
+                <div class="deliverable-number">
+                  5
+                </div>
 
-                <h3>Phased roadmap</h3>
+                <h3>
+                  Phased roadmap
+                </h3>
 
                 <p>
                   Immediate, next-year, and longer-term recommendations based
@@ -569,11 +865,13 @@
               </article>
 
             </div>
+
           </div>
+
         </section>
 
 
-        <!-- ACTUAL AUDIT TOOL -->
+        <!-- AUDIT TOOL -->
 
         <section
           class="audit-tool-section"
@@ -585,9 +883,7 @@
             <div class="audit-shell">
 
 
-              <!-- ============================================
-                   AUDIT SCREEN 1: WELCOME
-              ============================================= -->
+              <!-- AUDIT WELCOME -->
 
               <section
                 class="audit-screen active"
@@ -615,14 +911,16 @@
                     </p>
 
                     <p>
-                      Honest responses produce the most useful recommendations.
-                      Selecting “Not sure” is appropriate when evidence is not
-                      currently available.
+                      Honest responses produce the most useful
+                      recommendations. Selecting “Not sure” is appropriate
+                      when evidence is not currently available.
                     </p>
 
                     <div class="audit-privacy-note">
 
-                      <strong>Prototype privacy</strong>
+                      <strong>
+                        Prototype privacy
+                      </strong>
 
                       <p>
                         Your responses are stored only in this browser for the
@@ -641,6 +939,7 @@
                     </button>
 
                   </div>
+
 
                   <aside class="audit-overview-card">
 
@@ -670,12 +969,11 @@
                   </aside>
 
                 </div>
+
               </section>
 
 
-              <!-- ============================================
-                   AUDIT SCREEN 2: SCHOOL PROFILE
-              ============================================= -->
+              <!-- SCHOOL PROFILE -->
 
               <section
                 class="audit-screen"
@@ -686,6 +984,7 @@
                 <div class="audit-topline">
 
                   <div>
+
                     <span class="audit-kicker">
                       Step 1
                     </span>
@@ -698,6 +997,7 @@
                       This context allows RoboShift to identify patterns that
                       may be particularly relevant to your type of program.
                     </p>
+
                   </div>
 
                   <span class="audit-time">
@@ -705,6 +1005,7 @@
                   </span>
 
                 </div>
+
 
                 <form
                   id="profileForm"
@@ -722,6 +1023,7 @@
                       autocomplete="organization"
                     >
                   </label>
+
 
                   <label>
                     Your role
@@ -748,6 +1050,7 @@
                     </select>
                   </label>
 
+
                   <label>
                     Grade levels served
 
@@ -756,17 +1059,24 @@
                       name="gradeLevels"
                     >
                       <option value="">Select one</option>
-                      <option value="elementary">Elementary</option>
+                      <option value="elementary">
+                        Elementary
+                      </option>
                       <option value="middle">
                         Middle school / junior high
                       </option>
-                      <option value="high-school">High school</option>
-                      <option value="k12">K–12</option>
+                      <option value="high-school">
+                        High school
+                      </option>
+                      <option value="k12">
+                        K–12
+                      </option>
                       <option value="post-secondary">
                         Post-secondary or community program
                       </option>
                     </select>
                   </label>
+
 
                   <label>
                     Approximate student population
@@ -776,12 +1086,21 @@
                       name="studentPopulation"
                     >
                       <option value="">Select one</option>
-                      <option value="under-250">Under 250</option>
-                      <option value="250-499">250–499</option>
-                      <option value="500-999">500–999</option>
-                      <option value="1000-plus">1,000+</option>
+                      <option value="under-250">
+                        Under 250
+                      </option>
+                      <option value="250-499">
+                        250–499
+                      </option>
+                      <option value="500-999">
+                        500–999
+                      </option>
+                      <option value="1000-plus">
+                        1,000+
+                      </option>
                     </select>
                   </label>
+
 
                   <label>
                     Teachers currently involved
@@ -794,10 +1113,15 @@
                       <option value="0">None yet</option>
                       <option value="1">One teacher</option>
                       <option value="2">Two teachers</option>
-                      <option value="3">Three to five teachers</option>
-                      <option value="6">More than five teachers</option>
+                      <option value="3">
+                        Three to five teachers
+                      </option>
+                      <option value="6">
+                        More than five teachers
+                      </option>
                     </select>
                   </label>
+
 
                   <label>
                     Primary program model
@@ -807,9 +1131,15 @@
                       name="programModel"
                     >
                       <option value="">Select one</option>
-                      <option value="none">No current program</option>
-                      <option value="classroom">Mostly classroom</option>
-                      <option value="club">Mostly club</option>
+                      <option value="none">
+                        No current program
+                      </option>
+                      <option value="classroom">
+                        Mostly classroom
+                      </option>
+                      <option value="club">
+                        Mostly club
+                      </option>
                       <option value="competition">
                         Mostly competition
                       </option>
@@ -819,6 +1149,7 @@
                     </select>
                   </label>
 
+
                   <label>
                     Approximate annual robotics budget
 
@@ -827,12 +1158,21 @@
                       name="budgetLevel"
                     >
                       <option value="">Select one</option>
-                      <option value="low">Under $2,500</option>
-                      <option value="medium">$2,500–$9,999</option>
-                      <option value="high">$10,000+</option>
-                      <option value="unknown">Not sure</option>
+                      <option value="low">
+                        Under $2,500
+                      </option>
+                      <option value="medium">
+                        $2,500–$9,999
+                      </option>
+                      <option value="high">
+                        $10,000+
+                      </option>
+                      <option value="unknown">
+                        Not sure
+                      </option>
                     </select>
                   </label>
+
 
                   <label>
                     Main reason for using RoboShift
@@ -871,6 +1211,7 @@
 
                 </form>
 
+
                 <p
                   class="form-message hidden"
                   id="profileMessage"
@@ -879,6 +1220,7 @@
                   Complete the required profile fields before beginning the
                   questions.
                 </p>
+
 
                 <div class="audit-actions">
 
@@ -903,9 +1245,7 @@
               </section>
 
 
-              <!-- ============================================
-                   AUDIT SCREEN 3: QUESTIONS
-              ============================================= -->
+              <!-- AUDIT QUESTIONS -->
 
               <section
                 class="audit-screen"
@@ -918,8 +1258,15 @@
                   <aside class="audit-sidebar">
 
                     <div class="progress-heading">
-                      <span>Audit progress</span>
-                      <strong id="progressText">1 of 7</strong>
+
+                      <span>
+                        Audit progress
+                      </span>
+
+                      <strong id="progressText">
+                        1 of 7
+                      </strong>
+
                     </div>
 
                     <div
@@ -951,13 +1298,21 @@
 
                   </aside>
 
+
                   <div class="audit-question-area">
 
                     <div class="mobile-progress">
 
                       <div class="progress-heading">
-                        <span>Audit progress</span>
-                        <strong id="mobileProgressText">1 of 7</strong>
+
+                        <span>
+                          Audit progress
+                        </span>
+
+                        <strong id="mobileProgressText">
+                          1 of 7
+                        </strong>
+
                       </div>
 
                       <div class="progress-track">
@@ -965,6 +1320,7 @@
                       </div>
 
                     </div>
+
 
                     <header class="question-header">
 
@@ -986,6 +1342,7 @@
 
                     </header>
 
+
                     <div
                       class="response-key"
                       aria-label="Response scale explanation"
@@ -1006,15 +1363,19 @@
 
                     </div>
 
+
                     <div
                       class="response-help-panel hidden"
                       id="responseHelpPanel"
                     >
 
                       <dl>
+
                         <div>
                           <dt>Not in place</dt>
-                          <dd>No evidence that this is currently happening.</dd>
+                          <dd>
+                            No evidence that this is currently happening.
+                          </dd>
                         </div>
 
                         <div>
@@ -1049,21 +1410,23 @@
                         <div>
                           <dt>Not sure</dt>
                           <dd>
-                            There is not enough evidence to answer confidently.
+                            There is not enough evidence to answer
+                            confidently.
                           </dd>
                         </div>
+
                       </dl>
 
                     </div>
 
-                    <!--
-                      The 28 audit questions are generated here by script.js.
-                    -->
+
+                    <!-- Questions generated by script.js -->
 
                     <div
                       id="questionList"
                       class="question-list"
                     ></div>
+
 
                     <div class="audit-actions">
 
@@ -1086,18 +1449,22 @@
                     </div>
 
                   </div>
+
                 </div>
+
               </section>
 
             </div>
+
           </div>
+
         </section>
 
       </section>
 
 
       <!-- ====================================================
-           PAGE 3: RESULTS
+           RESULTS PAGE
       ===================================================== -->
 
       <section
@@ -1106,9 +1473,15 @@
         aria-labelledby="resultsPageTitle"
       >
 
-        <div class="results-empty-state" id="resultsEmptyState">
+        <div
+          class="results-empty-state"
+          id="resultsEmptyState"
+        >
 
-          <div class="empty-state-icon" aria-hidden="true">
+          <div
+            class="empty-state-icon"
+            aria-hidden="true"
+          >
             R
           </div>
 
@@ -1135,8 +1508,6 @@
 
         </div>
 
-
-        <!-- GENERATED RESULTS REPORT -->
 
         <article
           class="results-report hidden"
@@ -1167,6 +1538,7 @@
 
             </div>
 
+
             <div class="results-buttons">
 
               <button
@@ -1190,16 +1562,22 @@
           </header>
 
 
-          <!-- OVERALL RESULTS -->
-
           <section class="results-overview">
 
             <div class="overall-score-card">
 
               <div class="results-score-circle">
-                <strong id="overallScore">0</strong>
-                <span>out of 100</span>
+
+                <strong id="overallScore">
+                  0
+                </strong>
+
+                <span>
+                  out of 100
+                </span>
+
               </div>
+
 
               <div class="overall-score-copy">
 
@@ -1217,7 +1595,9 @@
                 </p>
 
               </div>
+
             </div>
+
 
             <aside class="confidence-card">
 
@@ -1238,8 +1618,6 @@
 
           </section>
 
-
-          <!-- CATEGORY RESULTS -->
 
           <section class="report-section">
 
@@ -1272,8 +1650,6 @@
           </section>
 
 
-          <!-- STRENGTHS AND GAPS -->
-
           <section class="results-two-column">
 
             <article class="result-panel strengths-panel">
@@ -1289,6 +1665,7 @@
               <div id="strengthsList"></div>
 
             </article>
+
 
             <article class="result-panel priorities-panel">
 
@@ -1306,8 +1683,6 @@
 
           </section>
 
-
-          <!-- PATTERN FINDINGS -->
 
           <section class="report-section">
 
@@ -1340,8 +1715,6 @@
           </section>
 
 
-          <!-- ROADMAP -->
-
           <section class="report-section roadmap-section">
 
             <div class="report-section-heading">
@@ -1366,6 +1739,7 @@
 
             </div>
 
+
             <div class="roadmap-columns">
 
               <article class="roadmap-column">
@@ -1386,6 +1760,7 @@
 
               </article>
 
+
               <article class="roadmap-column">
 
                 <span class="roadmap-phase">
@@ -1403,6 +1778,7 @@
                 <div id="mediumActions"></div>
 
               </article>
+
 
               <article class="roadmap-column">
 
@@ -1426,8 +1802,6 @@
 
           </section>
 
-
-          <!-- RESULTS NEXT STEPS -->
 
           <section class="results-next-step">
 
@@ -1481,7 +1855,7 @@
 
 
       <!-- ====================================================
-           PAGE 4: ACTION PLAN
+           ACTION PLAN PAGE
       ===================================================== -->
 
       <section
@@ -1509,6 +1883,7 @@
             </p>
 
           </div>
+
         </header>
 
 
@@ -1565,6 +1940,7 @@
 
                 </div>
 
+
                 <label class="priority-select-label">
                   Select priority area
 
@@ -1584,13 +1960,16 @@
 
                   <div class="plan-phase-heading">
 
-                    <span>30 days</span>
+                    <span>
+                      30 days
+                    </span>
 
                     <h3>
                       Define and organize
                     </h3>
 
                   </div>
+
 
                   <label>
                     Action
@@ -1602,6 +1981,7 @@
                     ></textarea>
                   </label>
 
+
                   <label>
                     Person responsible
 
@@ -1611,6 +1991,7 @@
                       placeholder="Name or role"
                     >
                   </label>
+
 
                   <label>
                     Evidence of progress
@@ -1624,17 +2005,21 @@
 
                 </article>
 
+
                 <article class="plan-phase-card">
 
                   <div class="plan-phase-heading">
 
-                    <span>60 days</span>
+                    <span>
+                      60 days
+                    </span>
 
                     <h3>
                       Implement and support
                     </h3>
 
                   </div>
+
 
                   <label>
                     Action
@@ -1646,6 +2031,7 @@
                     ></textarea>
                   </label>
 
+
                   <label>
                     Person responsible
 
@@ -1655,6 +2041,7 @@
                       placeholder="Name or role"
                     >
                   </label>
+
 
                   <label>
                     Evidence of progress
@@ -1668,17 +2055,21 @@
 
                 </article>
 
+
                 <article class="plan-phase-card">
 
                   <div class="plan-phase-heading">
 
-                    <span>90 days</span>
+                    <span>
+                      90 days
+                    </span>
 
                     <h3>
                       Review and continue
                     </h3>
 
                   </div>
+
 
                   <label>
                     Action
@@ -1690,6 +2081,7 @@
                     ></textarea>
                   </label>
 
+
                   <label>
                     Person responsible
 
@@ -1699,6 +2091,7 @@
                       placeholder="Name or role"
                     >
                   </label>
+
 
                   <label>
                     Evidence of progress
@@ -1726,6 +2119,7 @@
                     placeholder="Professional learning, funding, planning time, equipment, technical support, or partnerships"
                   ></textarea>
                 </label>
+
 
                 <label>
                   Likely barriers
@@ -1769,13 +2163,14 @@
             </form>
 
           </div>
+
         </section>
 
       </section>
 
 
       <!-- ====================================================
-           PAGE 5: RESOURCES
+           RESOURCES PAGE
       ===================================================== -->
 
       <section
@@ -1803,6 +2198,7 @@
             </p>
 
           </div>
+
         </header>
 
 
@@ -1824,11 +2220,14 @@
 
               </div>
 
+
               <label>
                 Filter resources
 
                 <select id="resourceFilter">
-                  <option value="all">All readiness areas</option>
+                  <option value="all">
+                    All readiness areas
+                  </option>
                   <option value="vision">
                     Program Vision and Leadership
                   </option>
@@ -1889,6 +2288,7 @@
 
               </article>
 
+
               <article
                 class="resource-card"
                 data-category="teachers"
@@ -1916,6 +2316,7 @@
                 </button>
 
               </article>
+
 
               <article
                 class="resource-card"
@@ -1945,6 +2346,7 @@
 
               </article>
 
+
               <article
                 class="resource-card"
                 data-category="equipment"
@@ -1972,6 +2374,7 @@
                 </button>
 
               </article>
+
 
               <article
                 class="resource-card"
@@ -2001,6 +2404,7 @@
 
               </article>
 
+
               <article
                 class="resource-card"
                 data-category="sustainability"
@@ -2028,6 +2432,7 @@
                 </button>
 
               </article>
+
 
               <article
                 class="resource-card"
@@ -2060,6 +2465,7 @@
             </div>
 
           </div>
+
         </section>
 
       </section>
@@ -2068,7 +2474,7 @@
 
 
     <!-- ======================================================
-         APP FOOTER
+         FOOTER
     ======================================================= -->
 
     <footer class="app-footer">
@@ -2078,8 +2484,13 @@
         <div>
 
           <div class="footer-brand">
-            <span class="brand-mark" aria-hidden="true">R</span>
-            <strong>RoboShift</strong>
+
+            <img
+              class="footer-logo"
+              src="roboshift-logo.png"
+              alt="RoboShift"
+            >
+
           </div>
 
           <p>
@@ -2088,6 +2499,7 @@
           </p>
 
         </div>
+
 
         <div class="footer-note">
 
@@ -2102,6 +2514,7 @@
         </div>
 
       </div>
+
     </footer>
 
   </div>
@@ -2128,6 +2541,7 @@
       <header class="modal-header">
 
         <div>
+
           <p class="modal-eyebrow">
             Example only
           </p>
@@ -2135,7 +2549,9 @@
           <h2 id="sampleReportTitle">
             Sample RoboShift Report
           </h2>
+
         </div>
+
 
         <button
           class="modal-close"
@@ -2147,6 +2563,7 @@
         </button>
 
       </header>
+
 
       <div class="modal-content">
 
@@ -2174,6 +2591,7 @@
             </p>
 
           </div>
+
         </div>
 
 
@@ -2196,6 +2614,7 @@
 
           </article>
 
+
           <article class="sample-item">
 
             <span class="sample-item-label">
@@ -2213,6 +2632,7 @@
 
           </article>
 
+
           <article class="sample-item">
 
             <span class="sample-item-label">
@@ -2229,6 +2649,7 @@
             </p>
 
           </article>
+
 
           <article class="sample-item">
 
@@ -2259,24 +2680,41 @@
           <div class="sample-roadmap-grid">
 
             <article>
-              <span>Next 90 days</span>
+
+              <span>
+                Next 90 days
+              </span>
+
               <p>
                 Document the program and identify a second staff lead.
               </p>
+
             </article>
 
+
             <article>
-              <span>Next school year</span>
+
+              <span>
+                Next school year
+              </span>
+
               <p>
                 Build curriculum progression and shared staff capacity.
               </p>
+
             </article>
 
+
             <article>
-              <span>Years 2–3</span>
+
+              <span>
+                Years 2–3
+              </span>
+
               <p>
                 Expand access and develop intelligent-systems learning.
               </p>
+
             </article>
 
           </div>
@@ -2305,7 +2743,9 @@
         </div>
 
       </div>
+
     </div>
+
   </div>
 
 
@@ -2327,6 +2767,7 @@
       <header class="modal-header">
 
         <div>
+
           <p class="modal-eyebrow">
             Prototype resource
           </p>
@@ -2334,7 +2775,9 @@
           <h2 id="resourceModalTitle">
             Resource preview
           </h2>
+
         </div>
+
 
         <button
           class="modal-close"
@@ -2347,6 +2790,7 @@
 
       </header>
 
+
       <div class="modal-content">
 
         <p id="resourceModalDescription">
@@ -2354,6 +2798,7 @@
           professional learning resource would appear in the complete
           RoboShift platform.
         </p>
+
 
         <div class="resource-preview-box">
 
@@ -2369,6 +2814,7 @@
 
         </div>
 
+
         <div class="modal-actions">
 
           <button
@@ -2382,7 +2828,9 @@
         </div>
 
       </div>
+
     </div>
+
   </div>
 
 
