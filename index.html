@@ -1,717 +1,1394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="RoboShift helps schools assess and strengthen their robotics and AI programs.">
-  <title>RoboShift | Robotics and AI Readiness</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>RoboShift Readiness Audit</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --navy: #042C53;
+    --navy-dark: #021D38;
+    --blue-light: #E6F1FB;
+    --blue-medium: #B5D4F4;
+
+    --teal: #236B6E;
+    --teal-dark: #04342C;
+    --teal-light: #E1F5EE;
+
+    --text: #1A1A1A;
+    --muted: #5F6870;
+    --border: #DDE3E8;
+    --background: #FFFFFF;
+    --soft-background: #F6F8FA;
+
+    --shadow:
+      0 10px 30px rgba(4, 44, 83, 0.09);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+
+  button,
+  a {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .page {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* HERO */
+
+  .hero {
+    padding: 72px 24px 62px;
+    background:
+      linear-gradient(
+        135deg,
+        var(--navy-dark) 0%,
+        var(--navy) 60%,
+        #0D4E73 100%
+      );
+    color: #FFFFFF;
+  }
+
+  .hero-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin: 0 0 14px;
+    color: var(--blue-medium);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    max-width: 800px;
+    margin: 0 auto 18px;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+  }
+
+  .hero-description {
+    max-width: 740px;
+    margin: 0 auto;
+    color: #E7F2FC;
+    font-size: 19px;
+    line-height: 1.65;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 22px;
+    margin-top: 24px;
+    color: #D3E7F7;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .button {
+    display: inline-flex;
+    min-height: 50px;
+    padding: 13px 22px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-decoration: none;
+    transition:
+      transform 0.18s ease,
+      background 0.18s ease,
+      border-color 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-primary {
+    background: #FFFFFF;
+    color: var(--navy);
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .button-primary:hover {
+    background: var(--blue-light);
+  }
+
+  .button-secondary {
+    border-color: rgba(255, 255, 255, 0.65);
+    background: transparent;
+    color: #FFFFFF;
+  }
+
+  .button-secondary:hover {
+    border-color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .button-navy {
+    border: 0;
+    background: var(--navy);
+    color: #FFFFFF;
+  }
+
+  .button-navy:hover {
+    background: var(--navy-dark);
+  }
+
+  .button-outline {
+    border-color: var(--navy);
+    background: #FFFFFF;
+    color: var(--navy);
+  }
+
+  .button-outline:hover {
+    background: var(--blue-light);
+  }
+
+  /* GENERAL SECTIONS */
+
+  .section {
+    padding: 64px 24px;
+  }
+
+  .section-soft {
+    background: var(--soft-background);
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    text-align: center;
+  }
+
+  .section-heading h2 {
+    margin: 0 0 12px;
+    color: var(--navy);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+  }
+
+  .section-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  /* WHAT YOU RECEIVE */
+
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+
+  .deliverable {
+    min-height: 190px;
+    padding: 22px 18px;
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--navy);
+    border-radius: 14px;
+    background: #FFFFFF;
+    box-shadow: var(--shadow);
+  }
+
+  .deliverable:nth-child(even) {
+    border-top-color: var(--teal);
+  }
+
+  .deliverable-number {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 16px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue-light);
+    color: var(--navy);
+    font-weight: 900;
+  }
+
+  .deliverable:nth-child(even) .deliverable-number {
+    background: var(--teal-light);
+    color: var(--teal-dark);
+  }
+
+  .deliverable h3 {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .deliverable p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* AUDIT CONTAINER */
+
+  .audit-section {
+    padding: 70px 24px;
+    background: #FFFFFF;
+  }
+
+  .audit-shell {
+    max-width: 1050px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .audit-header {
+    padding: 28px 32px;
+    background: var(--navy);
+    color: #FFFFFF;
+  }
+
+  .audit-header h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+  }
+
+  .audit-header p {
+    margin: 0;
+    color: #DCECF9;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .audit-tool {
+    padding: 34px;
+  }
+
+  .audit-placeholder {
+    padding: 50px 26px;
+    border: 2px dashed #AEC7DC;
+    border-radius: 14px;
+    background: var(--blue-light);
+    text-align: center;
+  }
+
+  .audit-placeholder h3 {
+    margin: 0 0 10px;
+    color: var(--navy);
+    font-size: 22px;
+  }
+
+  .audit-placeholder p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #415A6D;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .code-note {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 11px;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: var(--navy);
+    font-family:
+      Consolas,
+      Monaco,
+      monospace;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* RESULTS */
+
+  .results-section {
+    display: none;
+    padding: 64px 24px;
+    background: var(--soft-background);
+  }
+
+  .results-section.visible {
+    display: block;
+  }
+
+  .results-report {
+    max-width: 950px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .results-header {
+    padding: 28px 32px;
+    background: var(--navy);
+    color: #FFFFFF;
+  }
+
+  .results-header .label {
+    margin: 0 0 6px;
+    color: var(--blue-medium);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .results-header h2 {
+    margin: 0 0 8px;
+    font-size: 30px;
+  }
+
+  .results-header p {
+    margin: 0;
+    color: #DCECF9;
+    line-height: 1.55;
+  }
+
+  .results-body {
+    padding: 30px 32px;
+  }
+
+  .score-summary {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 28px;
+    align-items: center;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .overall-score {
+    display: flex;
+    width: 160px;
+    height: 160px;
+    border: 13px solid var(--blue-light);
+    border-top-color: var(--navy);
+    border-radius: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+  }
+
+  .overall-score strong {
+    font-size: 42px;
+    line-height: 1;
+  }
+
+  .overall-score span {
+    margin-top: 5px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .score-copy h3 {
+    margin: 0 0 8px;
+    color: var(--navy);
+    font-size: 24px;
+  }
+
+  .score-copy p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .result-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 26px;
+  }
+
+  .result-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .result-card.strengths {
+    background: var(--teal-light);
+  }
+
+  .result-card.priorities {
+    background: var(--blue-light);
+  }
+
+  .result-card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+
+  .result-card.strengths h3 {
+    color: var(--teal-dark);
+  }
+
+  .result-card.priorities h3 {
+    color: var(--navy);
+  }
+
+  .result-card ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #27343D;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .action-plan {
+    margin-top: 20px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--navy);
+    border-radius: 10px;
+  }
+
+  .action-plan h3 {
+    margin: 0 0 10px;
+    color: var(--navy);
+    font-size: 19px;
+  }
+
+  .action-plan p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .results-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  /* SAMPLE REPORT */
+
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: none;
+    padding: 24px;
+    background: rgba(2, 29, 56, 0.72);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal.open {
+    display: flex;
+  }
+
+  .modal-panel {
+    width: 100%;
+    max-width: 760px;
+    max-height: 90vh;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow:
+      0 25px 70px rgba(0, 0, 0, 0.25);
+    overflow-y: auto;
+  }
+
+  .modal-header {
+    display: flex;
+    padding: 22px 24px;
+    background: var(--navy);
+    color: #FFFFFF;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .modal-header h2 {
+    margin: 0;
+    font-size: 23px;
+  }
+
+  .modal-close {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .modal-content {
+    padding: 26px;
+  }
+
+  .sample-badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .sample-score {
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--blue-light);
+  }
+
+  .sample-score h3 {
+    margin: 0 0 6px;
+    color: var(--navy);
+    font-size: 23px;
+  }
+
+  .sample-score p {
+    margin: 0;
+    color: #405566;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .sample-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .sample-item {
+    padding: 17px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  .sample-item h4 {
+    margin: 0 0 6px;
+    color: var(--navy);
+    font-size: 15px;
+  }
+
+  .sample-item p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /* ACCESSIBILITY */
+
+  .button:focus-visible,
+  .modal-close:focus-visible {
+    outline: 4px solid #F5C451;
+    outline-offset: 3px;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 950px) {
+    .deliverables-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .deliverable:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .hero {
+      padding: 54px 20px 48px;
+    }
+
+    .hero-description {
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .button {
+      width: 100%;
+    }
+
+    .section,
+    .audit-section,
+    .results-section {
+      padding: 48px 16px;
+    }
+
+    .deliverables-grid,
+    .result-columns,
+    .sample-grid,
+    .score-summary {
+      grid-template-columns: 1fr;
+    }
+
+    .deliverable:last-child {
+      grid-column: auto;
+    }
+
+    .audit-header,
+    .audit-tool,
+    .results-header,
+    .results-body {
+      padding: 23px 20px;
+    }
+
+    .overall-score {
+      margin: 0 auto;
+    }
+
+    .score-copy {
+      text-align: center;
+    }
+
+    .modal {
+      padding: 12px;
+    }
+  }
+
+  /* PRINT / PDF */
+
+  @media print {
+    body {
+      background: #FFFFFF;
+    }
+
+    .hero,
+    .section,
+    .audit-section,
+    .results-actions,
+    .modal {
+      display: none !important;
+    }
+
+    .results-section {
+      display: block !important;
+      padding: 0;
+      background: #FFFFFF;
+    }
+
+    .results-report {
+      max-width: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .results-header {
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .result-card,
+    .action-plan,
+    .overall-score {
+      break-inside: avoid;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+  }
+</style>
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="nav-container">
-      <a class="brand" href="#home" aria-label="RoboShift home">
-        <span class="brand-mark">R</span>
-        <span>RoboShift</span>
-      </a>
 
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<div class="page">
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#problem">The Problem</a>
-        <a href="#venture">The Venture</a>
-        <a href="#opportunity">Opportunity</a>
-        <a href="#founder">Why Me</a>
-        <a href="#pilot">Pilot</a>
-        <a href="#ask">The Ask</a>
-        <a class="nav-button" href="#audit-tool">Try the Audit</a>
-      </nav>
+  <!-- HERO -->
+
+  <header class="hero">
+    <div class="hero-inner">
+
+      <p class="eyebrow">RoboShift Readiness Audit</p>
+
+      <h1>
+        See where your robotics program stands.
+      </h1>
+
+      <p class="hero-description">
+        Assess your school’s robotics program across seven areas of
+        readiness and receive a personalized report identifying strengths,
+        priority gaps, and practical next steps.
+      </p>
+
+      <div class="hero-meta">
+        <span>Approximately 10–15 minutes</span>
+        <span>Seven readiness areas</span>
+        <span>Personalized recommendations</span>
+      </div>
+
+      <div class="hero-actions">
+
+        <button
+          type="button"
+          class="button button-primary"
+          id="startAuditButton"
+        >
+          Start the Audit
+        </button>
+
+        <button
+          type="button"
+          class="button button-secondary"
+          id="sampleReportButton"
+        >
+          View a Sample Report
+        </button>
+
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-glow hero-glow-one"></div>
-      <div class="hero-glow hero-glow-two"></div>
 
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">Robotics + AI readiness for schools</p>
+  <!-- WHAT USERS RECEIVE -->
 
-          <h1>
-            Help schools build robotics programs that are ready for
-            <span>what comes next.</span>
-          </h1>
+  <section class="section section-soft">
 
-          <p class="hero-description">
-            RoboShift is a digital readiness audit and planning platform that helps schools evaluate
-            their robotics programs, identify critical gaps, and create a practical pathway toward
-            robotics, AI, automation, and autonomous-systems learning.
-          </p>
+    <div class="section-inner">
 
-          <div class="hero-actions">
-            <a class="button button-primary" href="#pitch">Watch the 1-minute pitch</a>
-            <a class="button button-secondary" href="#audit-tool">Try the readiness audit</a>
-          </div>
+      <div class="section-heading">
+        <h2>What you will receive</h2>
 
-          <div class="hero-proof">
-            <div><strong>7</strong><span>readiness categories</span></div>
-            <div><strong>28</strong><span>focused questions</span></div>
-            <div><strong>1</strong><span>actionable roadmap</span></div>
-          </div>
-        </div>
-
-        <div class="pitch-card" id="pitch">
-          <div class="pitch-label">Elevator Pitch</div>
-
-          <div class="pitch-video-wrap">
-            <video
-              class="pitch-video"
-              controls
-              preload="metadata"
-              playsinline
-              aria-label="RoboShift one-minute investor pitch"
-            >
-              <source src="RoboShift_Robotics.mp4" type="video/mp4">
-              Your browser does not support embedded video.
-            </video>
-          </div>
-
-          <div class="pitch-caption">
-            <span class="caption-icon">↗</span>
-            <p>
-              See why schools need more than another robotics kit—and why RoboShift
-              is designed to fill the transition gap.
-            </p>
-          </div>
-        </div>
+        <p>
+          The value of the audit is not simply in answering questions.
+          RoboShift turns those responses into a clear picture of program
+          readiness and a practical path forward.
+        </p>
       </div>
-    </section>
 
-    <section class="section section-light" id="problem">
-      <div class="container">
-        <div class="section-heading centered-heading">
-          <p class="eyebrow">The problem</p>
-          <h2>
-            Schools have robotics equipment.
-            <span>What many lack is a clear way forward.</span>
-          </h2>
+      <div class="deliverables-grid">
+
+        <article class="deliverable">
+          <div class="deliverable-number">1</div>
+          <h3>Overall readiness profile</h3>
           <p>
-            Schools have invested in robotics kits, coding tools, competitions, and STEM programs.
-            Yet many programs remain fragmented, dependent on one teacher, disconnected from curriculum,
-            or uncertain about how robotics should evolve as AI transforms the field.
+            A clear summary of the program’s current stage of development.
           </p>
-        </div>
+        </article>
 
-        <div class="card-grid three-columns">
-          <article class="info-card">
-            <div class="card-number">01</div>
-            <div class="icon-box">↯</div>
-            <h3>Disconnected investment</h3>
-            <p>Equipment and platforms are often purchased without a long-term instructional or implementation pathway.</p>
-          </article>
-
-          <article class="info-card">
-            <div class="card-number">02</div>
-            <div class="icon-box">⌁</div>
-            <h3>Fragile implementation</h3>
-            <p>Programs frequently depend on one experienced teacher, limited planning time, and informal technical knowledge.</p>
-          </article>
-
-          <article class="info-card">
-            <div class="card-number">03</div>
-            <div class="icon-box">◇</div>
-            <h3>An uncertain future</h3>
-            <p>Schools are unsure how robotics, AI, automation, and autonomous systems should connect across grades and subjects.</p>
-          </article>
-        </div>
-
-        <div class="problem-statement">
-          <p>More technology does not automatically create a stronger program.</p>
-          <strong>Schools need to understand what they already have, what is missing, and what should come next.</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark" id="venture">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow light-eyebrow">The venture</p>
-          <h2>RoboShift turns uncertainty into a practical roadmap.</h2>
+        <article class="deliverable">
+          <div class="deliverable-number">2</div>
+          <h3>Seven-area results</h3>
           <p>
-            A school completes a structured audit across seven areas. RoboShift analyzes the responses,
-            identifies strengths and risks, and generates a phased plan for strengthening the program.
+            Results across leadership, teaching, curriculum, access,
+            infrastructure, continuity, and AI readiness.
           </p>
-        </div>
+        </article>
 
-        <div class="process-grid">
-          <article class="process-card">
-            <span class="process-step">01</span><div class="process-icon">✓</div>
-            <h3>Assess</h3><p>Complete the seven-category robotics and AI readiness audit.</p>
-          </article>
-          <article class="process-card">
-            <span class="process-step">02</span><div class="process-icon">▥</div>
-            <h3>Analyze</h3><p>Receive an overall score and a clear category-level breakdown.</p>
-          </article>
-          <article class="process-card">
-            <span class="process-step">03</span><div class="process-icon">!</div>
-            <h3>Prioritize</h3><p>Identify strengths, critical gaps, evidence gaps, and program risks.</p>
-          </article>
-          <article class="process-card">
-            <span class="process-step">04</span><div class="process-icon">➜</div>
-            <h3>Evolve</h3><p>Follow a staged roadmap for the next 90 days, school year, and three years.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="prototype">
-      <div class="container">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">Working prototype</p>
-            <h2>From school profile to personalized plan.</h2>
-          </div>
+        <article class="deliverable">
+          <div class="deliverable-number">3</div>
+          <h3>Strengths and risks</h3>
           <p>
-            The first version of RoboShift is a focused minimum viable product:
-            a digital readiness audit, automated results dashboard, and customized implementation roadmap.
+            Areas of existing capacity alongside gaps that could limit
+            long-term program success.
           </p>
-        </div>
+        </article>
 
-        <div class="prototype-grid">
-          <article class="prototype-card">
-            <div class="prototype-window">
-              <div class="window-bar"><span></span><span></span><span></span></div>
-              <div class="audit-preview">
-                <div class="mini-sidebar">
-                  <strong>Audit</strong><span class="active-line"></span><span></span><span></span><span></span>
-                </div>
-                <div class="mini-content">
-                  <small>Teacher Capacity</small>
-                  <div class="question-line long-line"></div>
-                  <div class="question-line short-line"></div>
-                  <div class="scale">
-                    <span>1</span><span>2</span><span class="selected-score">3</span><span>4</span><span>5</span>
-                  </div>
-                  <div class="next-button">Next →</div>
-                </div>
-              </div>
-            </div>
-            <h3>Readiness Audit</h3>
-            <p>Twenty-eight questions evaluate the foundations, risks, and future readiness of the program.</p>
-          </article>
-
-          <article class="prototype-card">
-            <div class="prototype-window">
-              <div class="window-bar"><span></span><span></span><span></span></div>
-              <div class="dashboard-preview">
-                <div class="score-circle"><strong>72</strong><small>Overall</small></div>
-                <div class="score-bars">
-                  <div><span style="width:78%"></span></div>
-                  <div><span style="width:56%"></span></div>
-                  <div><span style="width:70%"></span></div>
-                  <div><span style="width:48%"></span></div>
-                  <div><span style="width:65%"></span></div>
-                </div>
-              </div>
-            </div>
-            <h3>Results Dashboard</h3>
-            <p>Schools receive an overall score, category results, strengths, priority gaps, and confidence rating.</p>
-          </article>
-
-          <article class="prototype-card">
-            <div class="prototype-window">
-              <div class="window-bar"><span></span><span></span><span></span></div>
-              <div class="roadmap-preview">
-                <div class="roadmap-line"></div>
-                <div class="roadmap-item"><span></span><div><strong>90 days</strong><small>Stabilize</small></div></div>
-                <div class="roadmap-item"><span></span><div><strong>1 year</strong><small>Strengthen</small></div></div>
-                <div class="roadmap-item"><span></span><div><strong>Years 2–3</strong><small>Evolve</small></div></div>
-              </div>
-            </div>
-            <h3>Personalized Roadmap</h3>
-            <p>Recommendations are organized into immediate, medium-term, and future-facing actions.</p>
-          </article>
-        </div>
-
-        <div class="prototype-action">
-          <a class="button button-primary" href="#audit-tool">Open the working prototype</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-accent" id="opportunity">
-      <div class="container opportunity-grid">
-        <div class="opportunity-content">
-          <p class="eyebrow">Why now</p>
-          <h2>Robotics is changing—and schools need help deciding what remains educationally valuable.</h2>
+        <article class="deliverable">
+          <div class="deliverable-number">4</div>
+          <h3>Recommended next steps</h3>
           <p>
-            As robotics becomes more connected to AI, sensing, automation, and adaptive behaviour,
-            schools face a more complicated question than which kit to purchase.
+            Practical actions based on the school’s responses and priorities.
           </p>
-          <blockquote>
-            “AI teaches students how machines make decisions. Robotics shows what happens
-            when those decisions become actions in the physical world.”
-          </blockquote>
-        </div>
+        </article>
 
-        <div class="opportunity-panel">
-          <p class="panel-label">The transition challenge</p>
-          <div class="transition-item"><span>01</span><p>Protect the value of existing robotics investments.</p></div>
-          <div class="transition-item"><span>02</span><p>Connect robotics learning with AI and autonomous systems.</p></div>
-          <div class="transition-item"><span>03</span><p>Avoid chasing every new technology trend.</p></div>
-          <div class="transition-item"><span>04</span><p>Create pathways that can evolve over time.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading centered-heading">
-          <p class="eyebrow">Investment proposition</p>
-          <h2>A focused entry point into a larger implementation market.</h2>
+        <article class="deliverable">
+          <div class="deliverable-number">5</div>
+          <h3>90-day action plan</h3>
           <p>
-            RoboShift begins with a paid readiness audit and customized roadmap.
-            It can then grow into a recurring platform for implementation, benchmarking,
-            professional learning, and district planning.
+            A focused starting point that turns audit findings into action.
           </p>
-        </div>
+        </article>
 
-        <div class="card-grid three-columns">
-          <article class="business-card">
-            <span class="business-label">Entry product</span>
-            <h3>Paid readiness audits</h3>
-            <p>A low-risk starting point that helps schools assess their current program and receive an actionable plan.</p>
-          </article>
-          <article class="business-card featured-card">
-            <span class="business-label">Recurring revenue</span>
-            <h3>School and district subscriptions</h3>
-            <p>Annual access to progress tracking, follow-up assessments, dashboards, and updated recommendations.</p>
-          </article>
-          <article class="business-card">
-            <span class="business-label">Premium services</span>
-            <h3>Implementation support</h3>
-            <p>Professional learning, program audits, curriculum mapping, and strategic planning.</p>
-          </article>
-        </div>
       </div>
-    </section>
-
-    <section class="section founder-section" id="founder">
-      <div class="container founder-grid">
-        <div class="founder-visual">
-        <img
-          class="founder-photo"
-        src="monique.jpg"
-        alt="Monique Saunders, founder of RoboShift"
-        >
-          <div class="experience-badge"><strong>Nearly 20 years</strong><span>in education</span></div>
-        </div>
-
-        <div class="founder-content">
-          <p class="eyebrow light-eyebrow">Founder-market fit</p>
-          <h2>Built from direct experience inside school robotics.</h2>
-          <p>
-            RoboShift is being developed by Monique Saunders, an experience Science and STEM education teacher 
-            with over twenty years experience in education. Her robotics experience includes LEGO Robotics 
-            and a specialization in VEX 5 Compeition Robotics 
-          </p>
-          <p>
-            Her work has involved classroom teaching, robotics coaching, competition preparation,
-            curriculum planning, teacher support, and the practical realities of organizing
-            equipment, replacing parts, troubleshooting robots, and building programs that can
-            continue over time.
-          </p>
-
-          <div class="founder-quote">
-            <span>“</span>
-            <p>
-              I have seen robotics from the classroom, the competition floor, the storage room,
-              and the planning table. I know how much work happens behind the scenes to keep a
-              program running, and how easily a strong program can become dependent on one teacher.
-              RoboShift grows from those experiences and from the questions schools need to answer
-              before investing more time and money.
-            </p>
-          </div>
-
-         <div class="founder-points">
-              <span>Nearly twenty years in education</span>
-              <span>Science and STEM teaching</span>
-              <span>VEX V5 Competition Robotics</span>
-              <span>LEGO robotics experience</span>
-              <span>Curriculum and program planning</span>
-              <span>Robotics coaching and troubleshooting</span>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light" id="pilot">
-      <div class="container">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">Validation before expansion</p>
-            <h2>The opportunity is promising. <span>The return still needs to be proven.</span></h2>
-          </div>
-          <p>
-            RoboShift does not assume that stronger implementation automatically creates
-            a strong return on investment. The first pilot is designed to test that claim.
-          </p>
-        </div>
-
-        <div class="pilot-grid">
-          <article class="pilot-card">
-            <div class="pilot-icon">✓</div><h3>Validate the audit</h3>
-            <p>Determine whether the categories, questions, scoring, and recommendations accurately reflect school needs.</p>
-          </article>
-          <article class="pilot-card">
-            <div class="pilot-icon">$</div><h3>Measure school value</h3>
-            <p>Track whether the roadmap improves equipment use, teacher capacity, continuity, and purchasing decisions.</p>
-          </article>
-          <article class="pilot-card">
-            <div class="pilot-icon">↗</div><h3>Test willingness to pay</h3>
-            <p>Identify which features school leaders value enough to support through audits, subscriptions, or services.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORKING AUDIT -->
-    <section class="section audit-tool-section" id="audit-tool">
-      <div class="container">
-        <div class="section-heading centered-heading">
-          <p class="eyebrow">Working prototype</p>
-          <h2>RoboShift Robotics + AI Readiness Audit</h2>
-          <p>
-            Complete the school profile and seven-category audit to generate an overall score,
-            category results, tailored recommendations, and a phased roadmap.
-          </p>
-        </div>
-
-        <div class="audit-shell">
-          <section class="audit-screen active" id="auditWelcome">
-            <div class="audit-welcome-grid">
-              <div>
-                <span class="audit-kicker">Before you begin</span>
-                <h3>Assess the program you have now—not the program you hope to have.</h3>
-                <p>
-                  The prototype contains 28 questions and normally takes about 8–10 minutes.
-                  Your answers remain in this browser and are not submitted anywhere.
-                </p>
-
-                <ul class="check-list">
-                  <li>Answer based on current evidence.</li>
-                  <li>Choose “Not sure” when information is unavailable.</li>
-                  <li>Use the report as a planning tool, not a certification.</li>
-                </ul>
-
-                <button class="button button-primary" id="startProfileButton" type="button">
-                  Start with the school profile
-                </button>
-              </div>
-
-              <div class="audit-summary-card">
-                <span>Prototype output</span>
-                <strong>Overall readiness score</strong>
-                <strong>7 category scores</strong>
-                <strong>Strengths and priority gaps</strong>
-                <strong>90-day, one-year, and three-year roadmap</strong>
-              </div>
-            </div>
-          </section>
-
-          <section class="audit-screen" id="profileScreen">
-            <div class="audit-topline">
-              <div>
-                <span class="audit-kicker">Step 1 of 3</span>
-                <h3>School profile</h3>
-              </div>
-              <span class="audit-time">About 2 minutes</span>
-            </div>
-
-            <form id="profileForm" class="profile-grid">
-              <label>
-                School or organization name
-                <input id="schoolName" type="text" placeholder="Optional">
-              </label>
-
-              <label>
-                Your role
-                <select id="userRole">
-                  <option value="">Select one</option>
-                  <option>Teacher</option>
-                  <option>Robotics or STEM lead</option>
-                  <option>School administrator</option>
-                  <option>District leader</option>
-                  <option>Technology coordinator</option>
-                  <option>Other</option>
-                </select>
-              </label>
-
-              <label>
-                Grade levels served
-                <select id="gradeLevels">
-                  <option value="">Select one</option>
-                  <option>Elementary</option>
-                  <option>Middle school / junior high</option>
-                  <option>High school</option>
-                  <option>K–12</option>
-                  <option>Post-secondary or community program</option>
-                </select>
-              </label>
-
-              <label>
-                Approximate student population
-                <select id="studentPopulation">
-                  <option value="">Select one</option>
-                  <option>Under 250</option>
-                  <option>250–499</option>
-                  <option>500–999</option>
-                  <option>1,000+</option>
-                </select>
-              </label>
-
-              <label>
-                Teachers currently involved
-                <select id="teacherCount">
-                  <option value="">Select one</option>
-                  <option value="0">None yet</option>
-                  <option value="1">One teacher</option>
-                  <option value="2">Two teachers</option>
-                  <option value="3">Three to five teachers</option>
-                  <option value="6">More than five teachers</option>
-                </select>
-              </label>
-
-              <label>
-                Primary program model
-                <select id="programModel">
-                  <option value="">Select one</option>
-                  <option value="none">No current program</option>
-                  <option value="classroom">Mostly classroom</option>
-                  <option value="club">Mostly club</option>
-                  <option value="competition">Mostly competition</option>
-                  <option value="mixed">Mixed classroom and extracurricular</option>
-                </select>
-              </label>
-
-              <label>
-                Approximate annual robotics budget
-                <select id="budgetLevel">
-                  <option value="">Select one</option>
-                  <option value="low">Under $2,500</option>
-                  <option value="medium">$2,500–$9,999</option>
-                  <option value="high">$10,000+</option>
-                  <option value="unknown">Not sure</option>
-                </select>
-              </label>
-
-              <label>
-                Main reason for using RoboShift
-                <select id="auditGoal">
-                  <option value="">Select one</option>
-                  <option value="start">Start a robotics program</option>
-                  <option value="improve">Improve an existing program</option>
-                  <option value="curriculum">Expand classroom integration</option>
-                  <option value="competition">Strengthen competition robotics</option>
-                  <option value="ai">Prepare for AI and automation</option>
-                  <option value="equity">Improve equity and access</option>
-                  <option value="purchasing">Make purchasing decisions</option>
-                  <option value="sustainability">Improve sustainability</option>
-                </select>
-              </label>
-            </form>
-
-            <div class="audit-actions">
-              <button class="button button-secondary" id="backToWelcomeButton" type="button">Back</button>
-              <button class="button button-primary" id="beginQuestionsButton" type="button">Begin the questions</button>
-            </div>
-          </section>
-
-          <section class="audit-screen" id="questionScreen">
-            <div class="audit-layout">
-              <aside class="audit-sidebar">
-                <div class="progress-heading">
-                  <span>Audit progress</span>
-                  <strong id="progressText">1 of 7</strong>
-                </div>
-                <div class="progress-track"><span id="progressBar"></span></div>
-                <div id="categoryNav" class="category-nav"></div>
-              </aside>
-
-              <div class="audit-question-area">
-                <div class="question-header">
-                  <div>
-                    <span class="audit-kicker" id="categoryNumber">Category 1 of 7</span>
-                    <h3 id="categoryTitle">Program Vision and Leadership</h3>
-                    <p id="categoryDescription"></p>
-                  </div>
-                </div>
-
-                <div id="questionList"></div>
-
-                <div class="audit-actions">
-                  <button class="button button-secondary" id="previousCategoryButton" type="button">Back</button>
-                  <button class="button button-primary" id="nextCategoryButton" type="button">Next category</button>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="audit-screen" id="resultsScreen">
-            <div class="results-heading">
-              <div>
-                <span class="audit-kicker">Your RoboShift report</span>
-                <h3 id="resultsSchoolName">School readiness results</h3>
-                <p id="resultsSummary"></p>
-              </div>
-              <div class="results-buttons">
-                <button class="button button-secondary" id="restartAuditButton" type="button">Start again</button>
-                <button class="button button-primary" id="printResultsButton" type="button">Print report</button>
-              </div>
-            </div>
-
-            <div class="results-hero">
-              <div class="overall-score-card">
-                <div class="results-score-circle">
-                  <strong id="overallScore">0</strong>
-                  <span>out of 100</span>
-                </div>
-                <div>
-                  <span class="result-label">Overall readiness</span>
-                  <h3 id="readinessLevel">Developing</h3>
-                  <p id="readinessInterpretation"></p>
-                </div>
-              </div>
-
-              <div class="confidence-card">
-                <span class="result-label">Response confidence</span>
-                <strong id="confidenceLevel">High</strong>
-                <p id="confidenceText"></p>
-              </div>
-            </div>
-
-            <div class="results-section">
-              <div class="results-section-heading">
-                <div>
-                  <span class="audit-kicker">Category results</span>
-                  <h3>Where the program is strongest—and where it is constrained</h3>
-                </div>
-              </div>
-              <div id="categoryResults" class="category-results"></div>
-            </div>
-
-            <div class="results-two-column">
-              <div class="result-panel">
-                <span class="result-label">Established strengths</span>
-                <h3>What is already working</h3>
-                <div id="strengthsList"></div>
-              </div>
-
-              <div class="result-panel warning-panel">
-                <span class="result-label">Priority gaps</span>
-                <h3>What needs attention first</h3>
-                <div id="gapsList"></div>
-              </div>
-            </div>
-
-            <div class="results-section">
-              <div class="results-section-heading">
-                <div>
-                  <span class="audit-kicker">Tailored findings</span>
-                  <h3>Patterns identified across your responses</h3>
-                </div>
-              </div>
-              <div id="patternFindings" class="finding-grid"></div>
-            </div>
-
-            <div class="results-section roadmap-section">
-              <div class="results-section-heading">
-                <div>
-                  <span class="audit-kicker">Personalized roadmap</span>
-                  <h3>Stabilize, strengthen, then evolve</h3>
-                </div>
-              </div>
-
-              <div class="roadmap-columns">
-                <article class="roadmap-column">
-                  <span class="roadmap-phase">Phase 1</span>
-                  <h3>Next 90 days</h3>
-                  <p>Stabilize the foundations.</p>
-                  <div id="immediateActions"></div>
-                </article>
-
-                <article class="roadmap-column">
-                  <span class="roadmap-phase">Phase 2</span>
-                  <h3>Next school year</h3>
-                  <p>Strengthen consistency and reach.</p>
-                  <div id="mediumActions"></div>
-                </article>
-
-                <article class="roadmap-column">
-                  <span class="roadmap-phase">Phase 3</span>
-                  <h3>Years 2–3</h3>
-                  <p>Evolve toward intelligent systems learning.</p>
-                  <div id="futureActions"></div>
-                </article>
-              </div>
-            </div>
-
-            <div class="disclaimer-box">
-              <strong>Planning tool disclaimer</strong>
-              <p>
-                This prototype is not a validated certification instrument and does not prove learning outcomes
-                or financial return. It is intended to support reflection, pilot planning, and further evidence collection.
-              </p>
-            </div>
-          </section>
-        </div>
-      </div>
-    </section>
-
-    <section class="ask-section" id="ask">
-      <div class="container ask-grid">
-        <div>
-          <p class="eyebrow light-eyebrow">The ask</p>
-          <h2>Help build and test the first RoboShift pilot.</h2>
-          <p>
-            RoboShift is seeking pilot schools, technical-development support, venture mentorship,
-            and early-stage funding to build, test, and refine the readiness audit and roadmap platform.
-          </p>
-        </div>
-
-        <div class="ask-actions">
-          <a class="button button-white" href="#audit-tool">Explore the prototype</a>
-          <a class="button button-outline-light" href="#founder">Meet the founder</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand footer-brand" href="#home">
-          <span class="brand-mark">R</span><span>RoboShift</span>
-        </a>
-        <p>Helping schools create sustainable, equitable, and future-ready robotics and AI programs.</p>
-      </div>
-
-      <div class="footer-links">
-        <a href="#problem">Problem</a>
-        <a href="#venture">Venture</a>
-        <a href="#audit-tool">Prototype</a>
-        <a href="#founder">Founder</a>
-        <a href="#ask">Investment Ask</a>
-      </div>
-
-      <p class="copyright">© <span id="currentYear"></span> RoboShift. Venture prototype for ETEC 522.</p>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+
+  <!-- AUDIT TOOL -->
+
+  <section
+    class="audit-section"
+    id="auditSection"
+  >
+
+    <div class="audit-shell">
+
+      <div class="audit-header">
+        <h2>Complete the readiness audit</h2>
+
+        <p>
+          Answer each question based on the program as it currently operates.
+          Honest responses will produce the most useful recommendations.
+        </p>
+      </div>
+
+      <div
+        class="audit-tool"
+        id="auditTool"
+      >
+
+        <!--
+        ============================================================
+        PASTE YOUR EXISTING AUDIT HTML HERE
+        ============================================================
+
+        Keep the outer element with id="auditTool".
+
+        When your existing audit calculates the final results, call:
+
+        showAuditResults();
+
+        That will display the personalized results section and activate
+        the Download Your Results button.
+        -->
+
+        <div class="audit-placeholder">
+          <h3>Your interactive audit goes here</h3>
+
+          <p>
+            Replace this placeholder with the existing RoboShift audit
+            questions, scoring system, progress bar, and submission button.
+          </p>
+
+          <span class="code-note">
+            Call showAuditResults() when the audit is complete
+          </span>
+
+          <!-- DEMONSTRATION BUTTON: REMOVE AFTER ADDING YOUR AUDIT -->
+
+          <div style="margin-top: 24px;">
+            <button
+              type="button"
+              class="button button-navy"
+              onclick="showAuditResults()"
+            >
+              Preview Completed Results
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PERSONALIZED RESULTS -->
+
+  <section
+    class="results-section"
+    id="resultsSection"
+  >
+
+    <div
+      class="results-report"
+      id="resultsReport"
+    >
+
+      <div class="results-header">
+
+        <p class="label">
+          Personalized RoboShift Report
+        </p>
+
+        <h2>Your robotics readiness profile</h2>
+
+        <p id="reportDate">
+          Results generated from your RoboShift Readiness Audit.
+        </p>
+
+      </div>
+
+      <div class="results-body">
+
+        <div class="score-summary">
+
+          <div class="overall-score">
+            <strong id="overallScore">72</strong>
+            <span>Overall score</span>
+          </div>
+
+          <div class="score-copy">
+
+            <h3 id="readinessLevel">
+              Developing foundations
+            </h3>
+
+            <p id="readinessSummary">
+              Your program has several important strengths, but continued
+              growth may be limited by gaps in planning, staff capacity, and
+              long-term continuity. The next step is to strengthen the systems
+              around the robotics program rather than focusing only on
+              additional equipment.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="result-columns">
+
+          <div class="result-card strengths">
+            <h3>Current strengths</h3>
+
+            <ul id="strengthsList">
+              <li>Strong student interest and participation</li>
+              <li>Existing robotics equipment and competition experience</li>
+              <li>Support from at least one experienced staff member</li>
+            </ul>
+          </div>
+
+          <div class="result-card priorities">
+            <h3>Priority areas</h3>
+
+            <ul id="prioritiesList">
+              <li>Reduce dependence on one staff member</li>
+              <li>Strengthen curriculum integration</li>
+              <li>Develop a multi-year equipment and funding plan</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="action-plan">
+          <h3>Recommended 90-day action</h3>
+
+          <p id="actionPlanText">
+            Create a small robotics planning team and document the program’s
+            current equipment, staffing, curriculum connections, participation
+            levels, and immediate priorities. Use this baseline to identify one
+            achievable improvement for the next school term.
+          </p>
+        </div>
+
+        <div class="results-actions">
+
+          <button
+            type="button"
+            class="button button-navy"
+            id="downloadResultsButton"
+          >
+            Download Your Results
+          </button>
+
+          <button
+            type="button"
+            class="button button-outline"
+            id="restartAuditButton"
+          >
+            Retake the Audit
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- SAMPLE REPORT MODAL -->
+
+<div
+  class="modal"
+  id="sampleReportModal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="sampleReportTitle"
+>
+
+  <div class="modal-panel">
+
+    <div class="modal-header">
+
+      <h2 id="sampleReportTitle">
+        Sample RoboShift Report
+      </h2>
+
+      <button
+        type="button"
+        class="modal-close"
+        id="closeSampleReport"
+        aria-label="Close sample report"
+      >
+        &times;
+      </button>
+
+    </div>
+
+    <div class="modal-content">
+
+      <span class="sample-badge">
+        Example only
+      </span>
+
+      <div class="sample-score">
+
+        <h3>Readiness level: Developing foundations</h3>
+
+        <p>
+          This example school has an established robotics program and strong
+          student interest. However, its long-term sustainability may be
+          affected by limited curriculum integration, dependence on one
+          teacher, and the absence of a formal growth plan.
+        </p>
+
+      </div>
+
+      <div class="sample-grid">
+
+        <div class="sample-item">
+          <h4>Strongest area</h4>
+          <p>
+            Student engagement and participation.
+          </p>
+        </div>
+
+        <div class="sample-item">
+          <h4>Highest-priority risk</h4>
+          <p>
+            Program continuity depends heavily on one staff member.
+          </p>
+        </div>
+
+        <div class="sample-item">
+          <h4>Recommended action</h4>
+          <p>
+            Create shared program documentation and begin developing a
+            second staff lead.
+          </p>
+        </div>
+
+        <div class="sample-item">
+          <h4>Longer-term opportunity</h4>
+          <p>
+            Connect robotics activities more deliberately to curriculum and
+            expand access beyond the competition team.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const startAuditButton =
+    document.getElementById("startAuditButton");
+
+  const sampleReportButton =
+    document.getElementById("sampleReportButton");
+
+  const sampleReportModal =
+    document.getElementById("sampleReportModal");
+
+  const closeSampleReport =
+    document.getElementById("closeSampleReport");
+
+  const downloadResultsButton =
+    document.getElementById("downloadResultsButton");
+
+  const restartAuditButton =
+    document.getElementById("restartAuditButton");
+
+  const auditSection =
+    document.getElementById("auditSection");
+
+  const resultsSection =
+    document.getElementById("resultsSection");
+
+
+  /*
+    START AUDIT
+  */
+
+  startAuditButton.addEventListener("click", function () {
+    auditSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+
+
+  /*
+    SAMPLE REPORT MODAL
+  */
+
+  function openSampleReport() {
+    sampleReportModal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    closeSampleReport.focus();
+  }
+
+  function closeSampleReportModal() {
+    sampleReportModal.classList.remove("open");
+    document.body.style.overflow = "";
+    sampleReportButton.focus();
+  }
+
+  sampleReportButton.addEventListener(
+    "click",
+    openSampleReport
+  );
+
+  closeSampleReport.addEventListener(
+    "click",
+    closeSampleReportModal
+  );
+
+  sampleReportModal.addEventListener(
+    "click",
+    function (event) {
+      if (event.target === sampleReportModal) {
+        closeSampleReportModal();
+      }
+    }
+  );
+
+  document.addEventListener(
+    "keydown",
+    function (event) {
+      if (
+        event.key === "Escape" &&
+        sampleReportModal.classList.contains("open")
+      ) {
+        closeSampleReportModal();
+      }
+    }
+  );
+
+
+  /*
+    DISPLAY COMPLETED RESULTS
+
+    Call this function from your existing audit code after
+    the final score and recommendations have been calculated.
+  */
+
+  function showAuditResults(resultData = null) {
+
+    /*
+      Optional resultData structure:
+
+      {
+        score: 72,
+        level: "Developing foundations",
+        summary: "Your personalized summary...",
+        strengths: [
+          "Strength one",
+          "Strength two"
+        ],
+        priorities: [
+          "Priority one",
+          "Priority two"
+        ],
+        actionPlan: "Your recommended action..."
+      }
+    */
+
+    if (resultData) {
+
+      if (Number.isFinite(resultData.score)) {
+        document.getElementById("overallScore").textContent =
+          resultData.score;
+      }
+
+      if (resultData.level) {
+        document.getElementById("readinessLevel").textContent =
+          resultData.level;
+      }
+
+      if (resultData.summary) {
+        document.getElementById("readinessSummary").textContent =
+          resultData.summary;
+      }
+
+      if (
+        Array.isArray(resultData.strengths) &&
+        resultData.strengths.length > 0
+      ) {
+        updateResultList(
+          "strengthsList",
+          resultData.strengths
+        );
+      }
+
+      if (
+        Array.isArray(resultData.priorities) &&
+        resultData.priorities.length > 0
+      ) {
+        updateResultList(
+          "prioritiesList",
+          resultData.priorities
+        );
+      }
+
+      if (resultData.actionPlan) {
+        document.getElementById("actionPlanText").textContent =
+          resultData.actionPlan;
+      }
+    }
+
+    const today = new Date();
+
+    document.getElementById("reportDate").textContent =
+      "Report generated " +
+      today.toLocaleDateString(
+        undefined,
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        }
+      ) +
+      ".";
+
+    resultsSection.classList.add("visible");
+
+    setTimeout(function () {
+      resultsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 100);
+  }
+
+
+  /*
+    UPDATE RESULT LISTS
+  */
+
+  function updateResultList(elementId, items) {
+    const list =
+      document.getElementById(elementId);
+
+    list.innerHTML = "";
+
+    items.forEach(function (item) {
+      const listItem =
+        document.createElement("li");
+
+      listItem.textContent = item;
+      list.appendChild(listItem);
+    });
+  }
+
+
+  /*
+    DOWNLOAD RESULTS
+
+    This opens the browser's print window. Visitors can select
+    "Save as PDF" to download their personalized report.
+  */
+
+  downloadResultsButton.addEventListener(
+    "click",
+    function () {
+      window.print();
+    }
+  );
+
+
+  /*
+    RESTART AUDIT
+  */
+
+  restartAuditButton.addEventListener(
+    "click",
+    function () {
+
+      resultsSection.classList.remove("visible");
+
+      /*
+        Add your existing audit reset function here.
+
+        Example:
+
+        resetAudit();
+      */
+
+      auditSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  );
+</script>
+
 </body>
 </html>
