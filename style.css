@@ -198,7 +198,7 @@ textarea:focus-visible {
 .app-header-inner {
   display: flex;
   width: min(100% - 40px, var(--max-width));
-  min-height: 76px;
+  min-height: 78px;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
@@ -207,53 +207,20 @@ textarea:focus-visible {
 
 .brand {
   display: inline-flex;
+  max-width: 270px;
   padding: 0;
   border: 0;
   align-items: center;
-  gap: 12px;
   background: transparent;
-  color: var(--navy);
-  text-align: left;
 }
 
-.brand-mark {
-  display: inline-flex;
-  width: 42px;
-  height: 42px;
-  flex: 0 0 auto;
-  border-radius: 11px;
-  align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(
-      135deg,
-      var(--navy) 0%,
-      var(--teal) 100%
-    );
-  color: var(--white);
-  box-shadow: 0 5px 12px rgba(4, 44, 83, 0.18);
-  font-size: 21px;
-  font-weight: 900;
-}
-
-.brand-copy {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.brand-copy strong {
-  font-size: 20px;
-  letter-spacing: -0.02em;
-}
-
-.brand-copy small {
-  margin-top: 3px;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+.header-logo {
+  display: block;
+  width: 245px;
+  max-width: 100%;
+  height: 58px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .app-navigation {
@@ -509,76 +476,353 @@ textarea:focus-visible {
 
 
 /* =========================================================
-   HOME DASHBOARD HERO
+   HOME HERO
 ========================================================= */
 
-.dashboard-hero {
-  padding: 75px 0 65px;
+.home-intro-hero {
+  padding: 72px 0;
   background:
     radial-gradient(
-      circle at 85% 20%,
-      rgba(79, 143, 146, 0.28),
-      transparent 31%
+      circle at 18% 15%,
+      rgba(48, 111, 224, 0.22),
+      transparent 33%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(34, 190, 183, 0.2),
+      transparent 30%
     ),
     linear-gradient(
       135deg,
       var(--navy-dark) 0%,
-      var(--navy) 60%,
+      var(--navy) 62%,
       var(--navy-medium) 100%
     );
   color: var(--white);
 }
 
-.dashboard-hero-inner {
+.home-intro-inner {
   display: grid;
   width: min(100% - 40px, var(--max-width));
   margin: 0 auto;
-  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+  grid-template-columns:
+    minmax(360px, 0.9fr)
+    minmax(0, 1.1fr);
   align-items: center;
-  gap: 65px;
+  gap: 55px;
 }
 
-.dashboard-hero-copy h1 {
-  max-width: 800px;
+.home-logo-panel {
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.19);
+}
+
+.home-main-logo {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.home-intro-copy h1 {
   margin: 0 0 20px;
-  font-size: clamp(42px, 6vw, 70px);
-  line-height: 1.03;
+  font-size: clamp(40px, 5.5vw, 65px);
+  line-height: 1.04;
   letter-spacing: -0.045em;
 }
 
-.dashboard-status-card {
-  padding: 27px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: var(--radius-large);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-large);
-  backdrop-filter: blur(12px);
+.home-intro-lead {
+  max-width: 720px;
+  margin: 0;
+  color: #e3eff8;
+  font-size: 19px;
+  line-height: 1.67;
 }
 
-.dashboard-status-card .status-label {
+
+/* =========================================================
+   WHAT ROBOSHIFT IS
+========================================================= */
+
+.home-introduction-section {
+  padding: 72px 0;
+  background: var(--white);
+}
+
+.home-introduction-heading {
+  display: grid;
+  margin-bottom: 36px;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(300px, 0.85fr);
+  align-items: end;
+  gap: 48px;
+}
+
+.home-introduction-heading h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(31px, 4.5vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -0.038em;
+}
+
+.home-introduction-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.68;
+}
+
+.introduction-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.introduction-card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--navy);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow-small);
+}
+
+.introduction-card:nth-child(2) {
+  border-top-color: var(--teal);
+}
+
+.introduction-card:nth-child(3) {
+  border-top-color: var(--blue);
+}
+
+.introduction-card-number {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 17px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue-light);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.introduction-card:nth-child(2)
+.introduction-card-number {
+  background: var(--teal-light);
+  color: var(--teal-dark);
+}
+
+.introduction-card h3 {
   margin: 0 0 9px;
-  color: var(--blue-medium);
-  font-size: 12px;
+  color: var(--navy);
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.introduction-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   WHY ROBOSHIFT
+========================================================= */
+
+.why-roboshift-section {
+  padding: 75px 0;
+  background:
+    linear-gradient(
+      135deg,
+      var(--navy-dark),
+      var(--navy)
+    );
+  color: var(--white);
+}
+
+.why-roboshift-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(300px, 0.75fr);
+  align-items: center;
+  gap: 60px;
+}
+
+.why-roboshift-copy h2 {
+  margin: 0 0 19px;
+  font-size: clamp(32px, 4.5vw, 49px);
+  line-height: 1.12;
+  letter-spacing: -0.038em;
+}
+
+.why-roboshift-copy > p:not(.eyebrow) {
+  margin: 0 0 15px;
+  color: #dce9f3;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.why-roboshift-callout {
+  padding: 29px;
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-large);
+  backdrop-filter: blur(10px);
+}
+
+.callout-label {
+  color: #8dd5cf;
+  font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.dashboard-status-card h2 {
-  margin: 0 0 8px;
-  font-size: 25px;
-  line-height: 1.25;
+.why-roboshift-callout blockquote {
+  margin: 14px 0 18px;
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
-.dashboard-status-card > p:not(.status-label) {
+.why-roboshift-callout p {
   margin: 0;
-  color: #dcebf6;
+  color: #d8e8f3;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-.status-progress {
-  margin: 24px 0 20px;
+
+/* =========================================================
+   PROCESS OVERVIEW
+========================================================= */
+
+.platform-overview-section {
+  padding: 70px 0;
+  background: var(--background-soft);
+}
+
+.overview-copy {
+  display: grid;
+  margin-bottom: 34px;
+  max-width: 800px;
+}
+
+.overview-copy h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.process-strip {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 15px;
+}
+
+.process-step {
+  min-height: 180px;
+  padding: 21px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.process-step > span {
+  display: inline-flex;
+  width: 33px;
+  height: 33px;
+  margin-bottom: 13px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.process-step h3 {
+  margin: 0 0 6px;
+  color: var(--navy);
+  font-size: 19px;
+}
+
+.process-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.process-arrow {
+  color: var(--teal);
+  font-size: 25px;
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   HOME DASHBOARD
+========================================================= */
+
+.dashboard-section {
+  padding: 70px 0;
+}
+
+.dashboard-status-banner {
+  display: grid;
+  margin-bottom: 24px;
+  padding: 24px 26px;
+  border-radius: var(--radius);
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(260px, 0.7fr);
+  align-items: center;
+  gap: 35px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue-light),
+      var(--teal-light)
+    );
+}
+
+.dashboard-status-banner .status-label {
+  margin: 0 0 5px;
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dashboard-status-banner h3 {
+  margin: 0 0 5px;
+  color: var(--navy);
+  font-size: 23px;
+}
+
+.dashboard-status-banner p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 14px;
 }
 
 .status-progress-heading,
@@ -595,7 +839,7 @@ textarea:focus-visible {
 .progress-track {
   height: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(4, 44, 83, 0.13);
   overflow: hidden;
 }
 
@@ -608,23 +852,14 @@ textarea:focus-visible {
   background:
     linear-gradient(
       90deg,
-      var(--blue-medium),
-      #8dd5c2
+      var(--navy),
+      var(--teal)
     );
   transition: width 0.3s ease;
 }
 
-.dashboard-status-card .text-button {
-  color: var(--white);
-}
-
-
-/* =========================================================
-   HOME DASHBOARD OPTIONS
-========================================================= */
-
-.dashboard-section {
-  padding: 70px 0;
+.dashboard-status-progress .text-button {
+  margin-top: 14px;
 }
 
 .dashboard-option-grid {
@@ -712,80 +947,7 @@ textarea:focus-visible {
 
 
 /* =========================================================
-   HOME PROCESS OVERVIEW
-========================================================= */
-
-.platform-overview-section {
-  padding: 70px 0;
-  background: var(--background-soft);
-}
-
-.overview-copy {
-  display: grid;
-  margin-bottom: 34px;
-  grid-template-columns: minmax(0, 1fr);
-  max-width: 800px;
-}
-
-.overview-copy h2 {
-  margin: 0;
-  color: var(--navy);
-  font-size: clamp(30px, 4vw, 44px);
-  line-height: 1.15;
-  letter-spacing: -0.035em;
-}
-
-.process-strip {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-  align-items: center;
-  gap: 15px;
-}
-
-.process-step {
-  min-height: 180px;
-  padding: 21px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--white);
-}
-
-.process-step > span {
-  display: inline-flex;
-  width: 33px;
-  height: 33px;
-  margin-bottom: 13px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  background: var(--navy);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.process-step h3 {
-  margin: 0 0 6px;
-  color: var(--navy);
-  font-size: 19px;
-}
-
-.process-step p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.55;
-}
-
-.process-arrow {
-  color: var(--teal);
-  font-size: 25px;
-  font-weight: 900;
-}
-
-
-/* =========================================================
-   AUDIT HERO
+   AUDIT AND SUBPAGE HEROES
 ========================================================= */
 
 .audit-hero,
@@ -2364,16 +2526,14 @@ textarea:focus {
   gap: 30px;
 }
 
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer-brand .brand-mark {
-  width: 36px;
-  height: 36px;
-  font-size: 17px;
+.footer-logo {
+  display: block;
+  width: 235px;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--white);
+  object-fit: contain;
 }
 
 .app-footer-inner > div:first-child > p {
@@ -2406,11 +2566,11 @@ textarea:focus {
   .app-navigation {
     position: fixed;
     z-index: 950;
-    top: 76px;
+    top: 78px;
     right: 0;
     left: 0;
     display: none;
-    height: calc(100vh - 76px);
+    height: calc(100vh - 78px);
     padding: 25px;
     align-items: stretch;
     flex-direction: column;
@@ -2429,13 +2589,29 @@ textarea:focus {
     text-align: left;
   }
 
-  .dashboard-hero-inner {
+  .home-intro-inner {
     grid-template-columns: 1fr;
-    gap: 35px;
   }
 
-  .dashboard-status-card {
-    max-width: 620px;
+  .home-logo-panel {
+    max-width: 720px;
+  }
+
+  .home-introduction-heading,
+  .why-roboshift-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .introduction-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .introduction-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .dashboard-status-banner {
+    grid-template-columns: 1fr;
   }
 
   .dashboard-option-grid {
@@ -2503,7 +2679,7 @@ textarea:focus {
 @media (max-width: 700px) {
   .app-header-inner,
   .section-inner,
-  .dashboard-hero-inner,
+  .home-intro-inner,
   .audit-hero-inner,
   .subpage-hero-inner,
   .audit-tool-container,
@@ -2512,22 +2688,35 @@ textarea:focus {
     width: min(100% - 28px, var(--max-width));
   }
 
-  .brand-copy small {
-    display: none;
+  .header-logo {
+    width: 180px;
+    height: 46px;
   }
 
-  .dashboard-hero,
+  .home-intro-hero,
+  .home-introduction-section,
+  .why-roboshift-section,
   .audit-hero,
   .subpage-hero {
-    padding: 52px 0 48px;
+    padding: 48px 0;
   }
 
-  .dashboard-hero-copy h1,
+  .home-intro-inner {
+    gap: 32px;
+  }
+
+  .home-logo-panel {
+    padding: 17px;
+    border-radius: 15px;
+  }
+
+  .home-intro-copy h1,
   .audit-hero h1,
   .subpage-hero h1 {
-    font-size: 39px;
+    font-size: 38px;
   }
 
+  .home-intro-lead,
   .hero-description {
     font-size: 17px;
   }
@@ -2549,8 +2738,9 @@ textarea:focus {
     display: none;
   }
 
-  .dashboard-section,
+  .home-introduction-section,
   .platform-overview-section,
+  .dashboard-section,
   .deliverables-section,
   .audit-tool-section,
   .action-plan-section,
@@ -2562,6 +2752,9 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
+  .home-introduction-heading,
+  .introduction-card-grid,
+  .dashboard-status-banner,
   .dashboard-option-grid,
   .process-strip,
   .deliverables-grid,
@@ -2576,8 +2769,17 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
+  .introduction-card:last-child,
   .deliverable:last-child {
     grid-column: auto;
+  }
+
+  .why-roboshift-grid {
+    gap: 32px;
+  }
+
+  .why-roboshift-callout blockquote {
+    font-size: 24px;
   }
 
   .dashboard-option-card {
@@ -2699,6 +2901,10 @@ textarea:focus {
     text-align: left;
   }
 
+  .footer-logo {
+    width: 210px;
+  }
+
   .modal {
     padding: 10px;
   }
@@ -2736,10 +2942,14 @@ textarea:focus {
     min-height: 48px;
   }
 
-  .dashboard-hero-copy h1,
+  .home-intro-copy h1,
   .audit-hero h1,
   .subpage-hero h1 {
     font-size: 34px;
+  }
+
+  .header-logo {
+    width: 150px;
   }
 }
 
